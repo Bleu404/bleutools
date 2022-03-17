@@ -44,7 +44,7 @@
                 data: DATA,
                 responseType: rtype || "json",
                 onload: function (res) {
-                    resolve(res.response || res.responseText || res);
+                    resolve({status:res.status,response:res.response || res.responseText || res});
                 },
                 onerror: function (err) {
                     reject(err);
