@@ -44,7 +44,12 @@
                 data: DATA,
                 responseType: rtype || "json",
                 onload: function (res) {
-                    resolve({status:res.status,response:res.response || res.responseText || res});
+                    if(res.status>=200&&res.status<300){
+                        resolve(res.response || res.responseText || res);
+                    }
+                    else{
+                        reject(res);
+                    }
                 },
                 onerror: function (err) {
                     reject(err);
