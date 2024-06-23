@@ -45,7 +45,7 @@
                 responseType: rtype || "json",
                 onload: function (res) {
                     if(res.status>=200&&res.status<300){
-                        resolve(res.response || res.responseText || res);
+                        reject(res.response || res.responseText || res);
                     }
                     else{
                         reject(res);
